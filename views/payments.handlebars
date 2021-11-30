@@ -1,0 +1,43 @@
+<ul>
+        <li><a href="employees">Employees</a></li>
+        <li><a href="orders">Orders</a></li>
+        <li><a href="menuitems">Menu Items</a></li>
+        <li><a href="payments">Payments</a></li>
+        <li style="float:right"><a  href="home.html">Restaurant POS</a></li>
+</ul>
+
+
+{{!-- Create a table --}}
+<table>
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.paymentID}}</td>
+            <td>{{this.orderID}}</td>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.orderType}}</td>
+            <td>{{this.paymentType}}</td>
+            <td>{{this.amount}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
