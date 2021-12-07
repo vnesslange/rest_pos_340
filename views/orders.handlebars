@@ -3,7 +3,8 @@
         <li><a href="orders">Orders</a></li>
         <li><a href="menuitems">Menu Items</a></li>
         <li><a href="payments">Payments</a></li>
-        <li style="float:right"><a  href="home.html">Restaurant POS</a></li>
+        <li><a href="ordermenu">OrderMenus</a></li>
+        <li style="float:right"><a  href="/">Restaurant POS</a></li>
 </ul>
 
 
@@ -34,8 +35,71 @@
             <td>{{this.employeeID}}</td>
             <td>{{this.date}}</td>
             <td>{{this.price}}</td>
-             <td>{{this.orderType}}</td>
+            <td>{{this.orderType}}</td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+
+
+<h3>Add New Order</h3>
+<form id="add-order-form" method="POST" action="/add-order-form">
+    <label for="empid">Employee ID</label>
+    <input type="number" id="empid" name="empid">
+    
+    <label for="orderDate">Date</label>
+    <input type="date" id="orderDate" name="orderDate">
+
+    <label for="orderPrice">Price</label>
+    <input type="number" id="orderPrice" name="orderPrice">
+
+     <label for="orderType">Order Type</label>
+    <input type="text" id="orderType" name="orderType">
+
+    <input type="submit">
+</form>
+
+
+<h3>Search by order type using the field below </h3>
+<form id="search-order-html" method='GET' action='/orders'>
+    <label for="orderType">Search by Order Type: </label>
+    <input type="text" name="orderType" id="search-order-html">
+    
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+
+<h3>Delete Orders Item</h3>
+
+<form id="delete-order-html" method="POST" action="/delete-order-form">
+    <label for="orderID"> Enter Order ID</label>
+    <input type="number" id="orderID" name="orderID">
+        
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+
+<h3>Update Orders Item</h3>
+
+
+    <form id="update-orders-form" method="POST" action="/update-orders-form">
+    
+    <label for="orderID"> Enter Order ID</label>
+    <input type="number" id="orderID" name="orderID">
+    
+    <label for="empid">Employee ID</label>
+    <input type="number" id="empid" name="empid">
+    
+    <label for="orderDate">Date</label>
+    <input type="date" id="orderDate" name="orderDate">
+
+    <label for="orderPrice">Price</label>
+    <input type="number" id="orderPrice" name="orderPrice">
+
+     <label for="orderType">Order Type</label>
+    <input type="text" id="orderType" name="orderType">
+
+    <input type="submit">
+     <a href='/'><button>Reset</button></a>
+</form>

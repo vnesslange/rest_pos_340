@@ -3,7 +3,8 @@
         <li><a href="orders">Orders</a></li>
         <li><a href="menuitems">Menu Items</a></li>
         <li><a href="payments">Payments</a></li>
-        <li style="float:right"><a  href="home.html">Restaurant POS</a></li>
+        <li><a href="ordermenu">OrderMenus</a></li>
+        <li style="float:right"><a  href="/">Restaurant POS</a></li>
 </ul>
 
 
@@ -37,7 +38,80 @@
             <td>{{this.orderType}}</td>
             <td>{{this.paymentType}}</td>
             <td>{{this.amount}}</td>
+            <td><button onclick="deletePayment({{id}})">Delete</button></td>
+            <td><a href="/payments/{{id}}">Update</a></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+<h3>Add Payment to Order Here:</h3>
+
+      <form id="add-payment-form" method="POST" action="/add-payment-form">
+          <label for="orderID">Enter Order Number </label>
+          <input type="text" id="orderID" name="orderID">
+          
+          <label for="staffOrderId">Enter Employee ID</label>
+          <input type="text" id="staffOrderId" name="staffOrderId">
+
+          <label for="orderDate">Date</label>
+          <input type="date" id="orderDate" name="orderDate">
+
+          <label for="paymentOrderType">Order Type</label>
+          <input type="text" id="paymentOrderType" name="paymentOrderType">
+          
+          <label for="paymentType">Enter Payment Type</label>
+          <input type="text" id="paymentType" name="paymentType">
+          
+          <label for="paymentAmount">Enter Payment Amount</label>
+          <input type="number" id="paymentAmount" name="paymentAmount">
+          
+          <input type="submit" value="Submit">
+      </form>
+
+<h3>Search by payment type using the field below </h3>
+<form id="search-payment-html" method='GET' action='/payments'>
+    <label for="paymentType">Search by Payment Type: </label>
+    <input type="text" name="paymentType" id="search-payment-html">
+    
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+
+<h3>Delete Payment</h3>
+
+<form id="delete-payment-html" method="POST" action="/delete-payment-form">
+    <label for="paymentID"> Enter Payment ID</label>
+    <input type="number" id="paymentID" name="paymentID">
+        
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+
+<h3>Update Payment</h3>
+
+<form id="update-payment-html" method="POST" action="/update-payment-form">
+    <label for="paymentID"> Enter Payment ID</label>
+    <input type="number" id="paymentID" name="paymentID">
+
+    <label for="orderID">Enter Order Number </label>
+    <input type="text" id="orderID" name="orderID">
+          
+    <label for="staffOrderId">Enter Employee ID</label>
+    <input type="text" id="staffOrderId" name="staffOrderId">
+
+    <label for="orderDate">Date</label>
+    <input type="date" id="orderDate" name="orderDate">
+
+    <label for="paymentOrderType">Order Type</label>
+    <input type="text" id="paymentOrderType" name="paymentOrderType">
+          
+    <label for="paymentType">Enter Payment Type</label>
+    <input type="text" id="paymentType" name="paymentType">
+          
+    <label for="paymentAmount">Enter Payment Amount</label>
+    <input type="number" id="paymentAmount" name="paymentAmount">
+        
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>

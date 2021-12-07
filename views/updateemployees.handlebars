@@ -1,0 +1,46 @@
+<h3>Update Employee</h3>
+<form id="u-employee-form" method="POST" action="/u-employee-form">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="fname">
+    
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lname">
+
+    <label for="jobtype">Position</label>
+    <input type="text" id="jobtype" name="jobtype">
+
+    <input type="submit">
+</form>
+{{!-- Create a table --}}
+<table>
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.job}}</td>
+            <td><button onclick="deleteEmployee({{id}})" method="POST" action="/Delete-employee">Delete</button></td>
+            <td><a href="/employees/{{id}}">Update</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
